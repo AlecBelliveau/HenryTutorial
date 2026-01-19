@@ -19,10 +19,9 @@ namespace HenryMod.Modules
 
         internal static AssetBundle LoadAssetBundle(string bundleName)
         {
-
             if (bundleName == "myassetbundle")
             {
-                Log.Error($"AssetBundle name hasn't been changed. not loading any assets to avoid conflicts.\nMake sure to rename your assetbundle filename and rename the AssetBundleName field in your character setup code ");
+                Log.Error($"AssetBundle name hasn't been changed. not loading any assets to avoid conflicts.\nMake sure to rename your assetbundle filename and rename the AssetBundleName field in your character setup code");
                 return null;
             }
 

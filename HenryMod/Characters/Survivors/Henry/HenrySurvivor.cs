@@ -76,7 +76,7 @@ namespace HenryMod.Survivors.Henry
 
         //set in base classes
         public override AssetBundle assetBundle { get; protected set; }
-
+        //exposed here for convenience. these are useful to reference throughout your code
         public override GameObject bodyPrefab { get; protected set; }
         public override CharacterBody prefabCharacterBody { get; protected set; }
         public override GameObject characterModelObject { get; protected set; }
@@ -150,7 +150,7 @@ namespace HenryMod.Survivors.Henry
             //the main "Body" state machine has some special properties
             Prefabs.AddMainEntityStateMachine(bodyPrefab, "Body", typeof(EntityStates.GenericCharacterMain), typeof(EntityStates.SpawnTeleporterState));
             //if you set up a custom `CharacterMain` state, set it here. 
-                //don't forget to register custom entitystates in your HenryStates.cs
+                //don't forget to register custom entitystates in your CharacterStates.cs
 
             Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon");
             Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon2");
@@ -364,7 +364,7 @@ namespace HenryMod.Survivors.Henry
 
             #region DefaultSkin
             //this creates a SkinDef with all default fields
-            SkinDef defaultSkin = Skins.CreateSkinDef("DEFAULT_SKIN",
+            SkinDef defaultSkin = Modules.Skins.CreateSkinDef("DEFAULT_SKIN",
                 assetBundle.LoadAsset<Sprite>("texMainSkin"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject);
