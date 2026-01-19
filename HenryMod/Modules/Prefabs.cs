@@ -635,6 +635,12 @@ namespace HenryMod.Modules
             {
                 setStateOnHurt.idleStateMachine = Array.Empty<EntityStateMachine>();
             }
+
+            CharacterBody body = bodyPrefab.GetComponent<CharacterBody>();
+            if (body)
+            {
+                body.vehicleIdleStateMachine = Array.Empty<EntityStateMachine>();
+            }
         }
 
         //this but in reverse https://media.discordapp.net/attachments/875473107891150878/896193331720237106/caption-7.gif?ex=65989f94&is=65862a94&hm=e1f51da3ad190c00c5da1f90269d5ef10bedb0ae063c0f20aa0dd8721608018a&
@@ -692,6 +698,15 @@ namespace HenryMod.Modules
             if (setStateOnHurt && addToHurt)
             {
                 setStateOnHurt.idleStateMachine = setStateOnHurt.idleStateMachine.Append(entityStateMachine).ToArray();
+            }
+
+            //Add to the array of "idle" StateMachines.
+            //Same as CharacterDeathBehavior but for entering a vehicle.
+            //note only the non-body states are added to this. there is no equivelent for the "main" statemachine in the AddMainEntityStateMachine function below
+            CharacterBody body = prefab.GetComponent<CharacterBody>();
+            if (body)
+            {
+                body.vehicleIdleStateMachine = body.vehicleIdleStateMachine.Append(entityStateMachine).ToArray();
             }
 
             return entityStateMachine;
