@@ -451,7 +451,7 @@ namespace HenryMod.Survivors.Henry
             orig(self, damageInfo);
             if(!damageInfo.rejected && damageInfo.HasModdedDamageType(HenryContent.CharacterDamageTypes.comboFinisherDebuffDamage))
             {
-                DotController.InflictDot(self.gameObject, damageInfo.attacker, HenryContent.CharacterDots.comboFinisherDot, 4, 1);
+                DotController.InflictDot(self.gameObject, damageInfo.attacker, damageInfo.inflictedHurtbox, HenryContent.CharacterDots.comboFinisherDot, 4, 1);
             }
         }
 

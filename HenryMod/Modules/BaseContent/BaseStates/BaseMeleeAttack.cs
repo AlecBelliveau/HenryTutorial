@@ -170,7 +170,6 @@ namespace HenryMod.Modules.BaseStates
 
         private void EnterAttack()
         {
-            hasFired = true;
             Util.PlayAttackSpeedSound(swingSoundString, gameObject, attackSpeedStat);
 
             PlaySwingEffect();
@@ -210,6 +209,7 @@ namespace HenryMod.Modules.BaseStates
             {
                 if (!hasFired)
                 {
+                    hasFired = true;
                     EnterAttack();
                 }
                 FireAttack();
