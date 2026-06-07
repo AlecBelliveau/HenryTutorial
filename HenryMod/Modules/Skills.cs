@@ -3,10 +3,10 @@ using RoR2;
 using RoR2.Skills;
 using System;
 using System.Collections.Generic;
-using HenryMod;
+using DestinyGuardiansMod;
 using UnityEngine;
 
-namespace HenryMod.Modules
+namespace DestinyGuardiansMod.Modules
 {
     internal static class Skills
     {
@@ -185,7 +185,7 @@ namespace HenryMod.Modules
 
             skillDef.keywordTokens = skillDefInfo.keywordTokens;
 
-            HenryMod.Modules.Content.AddSkillDef(skillDef);
+            DestinyGuardiansMod.Modules.Content.AddSkillDef(skillDef);
 
 
             return skillDef;

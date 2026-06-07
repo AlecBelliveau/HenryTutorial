@@ -1,4 +1,4 @@
-﻿namespace HenryMod.Modules
+﻿namespace DestinyGuardiansMod.Modules
 {
     internal static class Tokens
     {
