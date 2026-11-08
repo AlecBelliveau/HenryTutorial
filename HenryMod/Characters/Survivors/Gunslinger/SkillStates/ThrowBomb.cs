@@ -47,11 +47,36 @@ namespace DestinyGuardiansMod.Survivors.Gunsligner.SkillStates
 
         public override void FixedUpdate()
         {
+            Log.Message("Fixed Upade");
             base.FixedUpdate();
 
 
-
         }
+
+        public override void FireProjectile()
+        {
+			if (base.isAuthority)
+			{
+				Ray aimRay = aimRayOverride ?? GetAimRay();
+				aimRay = ModifyProjectileAimRay(aimRay);
+				aimRay.direction = Util.ApplySpread(aimRay.direction, minSpread, maxSpread, 1f, 1f, 0f, projectilePitchBonus);
+				FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
+				{
+					projectilePrefab = projectilePrefab,
+					position = aimRay.origin,
+					rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
+					owner = base.gameObject,
+					damage = damageStat * damageCoefficient,
+					force = force,
+					crit = Util.CheckRoll(critStat, base.characterBody.master),
+					fuseOverride = (projectileFuseOverride ?? (-1f)),
+					speedOverride = (projectileSpeedOverride ?? (-1f))
+				};
+                //fireProjectileInfo.passenger = new HealthComponent()
+				ModifyProjectileInfo(ref fireProjectileInfo);
+				ProjectileManager.instance.FireProjectile(fireProjectileInfo);
+			}
+		}
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {

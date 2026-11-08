@@ -26,7 +26,7 @@ namespace DestinyGuardiansMod.Survivors.Gunsligner
         public override string modelPrefabName => "mdlGunslinger";
         public override string displayPrefabName => "GunslingerDisplay";
 
-        public const string GUNSLIGNER_PREFIX = DestinyGuardians.DEVELOPER_PREFIX + "_Gunslinger_";
+        public const string GUNSLIGNER_PREFIX = DestinyGuardians.DEVELOPER_PREFIX + "_GUNSLIGNER_";
 
         //used when registering your survivor's language tokens
         public override string survivorTokenPrefix => GUNSLIGNER_PREFIX;
@@ -222,7 +222,7 @@ namespace DestinyGuardiansMod.Survivors.Gunsligner
 				skillName = "HenryGun",
 				skillNameToken = GUNSLIGNER_PREFIX + "SECONDARY_GUN_NAME",
 				skillDescriptionToken = GUNSLIGNER_PREFIX + "SECONDARY_GUN_DESCRIPTION",
-				keywordTokens = new string[] { "KEYWORD_AGILE" },
+				//keywordTokens = new string[] {  },
 				skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
 
 				activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Shoot)),
@@ -313,9 +313,12 @@ namespace DestinyGuardiansMod.Survivors.Gunsligner
             SkillDef utilitySkillDef1 = Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = "HenryRoll",
-                skillNameToken = GUNSLIGNER_PREFIX + "UTILITY_ROLL_NAME",
-                skillDescriptionToken = GUNSLIGNER_PREFIX + "UTILITY_ROLL_DESCRIPTION",
-                skillIcon = assetBundle.LoadAsset<Sprite>("texUtilityIcon"),
+                skillNameToken = GUNSLIGNER_PREFIX + "UTILITY_ACROBAT_DODGE_NAME",
+                skillDescriptionToken = GUNSLIGNER_PREFIX + "UTILITY_ACROBAT_DODGE_DESCRIPTION",
+                keywordTokens = new string[] { "KEYWORD_IGNITE", GUNSLIGNER_PREFIX + "KEYWORD_RADIANT" } ,
+				
+
+				skillIcon = assetBundle.LoadAsset<Sprite>("texUtilityIcon"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(AcrobatsDodgeJump)),
                 activationStateMachineName = "Body",

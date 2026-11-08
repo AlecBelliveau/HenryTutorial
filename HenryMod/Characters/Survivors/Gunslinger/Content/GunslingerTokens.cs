@@ -6,7 +6,7 @@ namespace DestinyGuardiansMod.Survivors.Gunsligner
 {
     public static class GunslingerTokens
     {
-        public static void Init()
+		public static void Init()
         {
             AddHenryTokens();
 
@@ -47,17 +47,17 @@ namespace DestinyGuardiansMod.Survivors.Gunsligner
 
             #region Primary
             Language.Add(prefix + "PRIMARY_SLASH_NAME", "Sword");
-            Language.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Tokens.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * GunslingerStaticValues.swordDamageCoefficient}% damage</style>.");
+            Language.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", $"Fire a rifle for <style=cIsDamage>{100f * GunslingerStaticValues.gunDamageCoefficient}% damage</style>. <style=cIsDamage>Critical hits</style> temporarily increase base damage by <style=cIsDamage>{100f * GunslingerStaticValues.cranialSpikeDamageIncrease}%</style>, up to 5 times.");
             #endregion
 
             #region Secondary
-            Language.Add(prefix + "SECONDARY_GUN_NAME", "Handgun");
-            Language.Add(prefix + "SECONDARY_GUN_DESCRIPTION", Tokens.agilePrefix + $"Fire a handgun for <style=cIsDamage>{100f * GunslingerStaticValues.gunDamageCoefficient}% damage</style>.");
+            Language.Add(prefix + "SECONDARY_GUN_NAME", "Dead Man's Tale");
+            Language.Add(prefix + "SECONDARY_GUN_DESCRIPTION", $"Fire a rifle for <style=cIsDamage>{100f * GunslingerStaticValues.gunDamageCoefficient}% damage</style>. <style=cIsDamage>Critical hits</style> temporarily increase base damage by <style=cIsDamage>{100f * GunslingerStaticValues.cranialSpikeDamageIncrease}%</style>, up to 5 times.");
             #endregion
 
             #region Utility
-            Language.Add(prefix + "UTILITY_ROLL_NAME", "Roll");
-            Language.Add(prefix + "UTILITY_ROLL_DESCRIPTION", "Roll a short distance, gaining <style=cIsUtility>300 armor</style>. <style=cIsUtility>You cannot be hit during the roll.</style>");
+            Language.Add(prefix + "UTILITY_ACROBAT_DODGE_NAME", "Acrobat's Dodge");
+            Language.Add(prefix + "UTILITY_ACROBAT_DODGE_DESCRIPTION", $"<style=cIsDamage>Ignite</style>. Leap into the air, then dive down to the ground, dealing <style=cIsDamage>{100f * GunslingerStaticValues.AcrobatsDogdgeBaseDamage}% damage</style> and granting yourself and nearby allies <style=cIsDamage>Radiant</style>.");
             #endregion
 
             #region Special
@@ -69,6 +69,10 @@ namespace DestinyGuardiansMod.Survivors.Gunsligner
             Language.Add(Tokens.GetAchievementNameToken(GunslingerAchievement.identifier), "Henry: Mastery");
             Language.Add(Tokens.GetAchievementDescriptionToken(GunslingerAchievement.identifier), "As Henry, beat the game or obliterate on Monsoon.");
             #endregion
-        }
-    }
+
+            #region Keywords
+			Language.Add(prefix + "KEYWORD_RADIANT", "<style=cKeywordName>Radiant</style> <style=cSub>Causes your primary attacks to <style=cIsDamage>Ignite</style>.</style>");
+			#endregion
+		}
+	}
 }
